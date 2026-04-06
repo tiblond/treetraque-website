@@ -70,8 +70,7 @@
                 </div>
 
                 <!-- Formulaire -->
-                <form class="observation-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="access_key" value="c7c104ba-8141-4b37-871c-5b74a16a7650">
+                <form id="observationForm" class="observation-form">
                     <!-- Nom -->
                     <div class="form-group">
                         <label data-i18n="form.name">Nom <span class="required">*</span></label>
@@ -276,22 +275,115 @@
     <script src="js/navigation.js"></script>
     <script src="js/main.js"></script>
     <script>
-        // Script pour afficher le nom du fichier sélectionné
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz-FhygQdjXRRVSZaCnwP36_AmfInD-3SaR3Wiw2po0rJXvN2F832K76lhRpa5zrSYy/exec";
+
         document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('observationForm');
             const fileInput = document.getElementById('photo');
             const fileLabel = document.querySelector('.file-upload-label');
-            
+            const originalFileLabelText = fileLabel ? fileLabel.textContent : '';
+
             if (fileInput && fileLabel) {
-                const originalText = fileLabel.textContent;
-                
                 fileInput.addEventListener('change', function() {
                     if (this.files && this.files.length > 0) {
                         fileLabel.textContent = this.files[0].name;
                     } else {
-                        fileLabel.textContent = originalText;
+                        fileLabel.textContent = originalFileLabelText;
                     }
                 });
             }
+
+            if (!form) {
+                return;
+            }
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const submitButton = form.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton ? submitButton.textContent : '';
+
+                if (submitButton) {
+                    submitButton.textContent = 'Envoi en cours...';
+                    submitButton.disabled = true;
+                }
+
+                const formData = new FormData(form);
+                const data = {};
+
+                form.querySelectorAll('input[type="text"], input[type="email"], input[type="date"], textarea, select').forEach(function(field) {
+                    data[field.name] = formData.get(field.name) || '';
+                });
+
+                form.querySelectorAll('input[type="radio"]:checked').forEach(function(field) {
+                    data[field.name] = field.value;
+                });
+
+                form.querySelectorAll('input[type="checkbox"]').forEach(function(field) {
+                    if (field.name === 'consent') {
+                        data[field.name] = field.checked;
+                        return;
+                    }
+
+                    if (field.checked) {
+                        data[field.name] = field.value;
+                    }
+                });
+
+                function sendData(payload) {
+                    fetch(SCRIPT_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    })
+                        .then(function() {
+                            alert('Observation envoyée avec succès !');
+                            form.reset();
+                            if (fileLabel) {
+                                fileLabel.textContent = originalFileLabelText;
+                            }
+                        })
+                        .catch(function(error) {
+                            console.error('Erreur lors de l\'envoi :', error);
+                            alert('Echec de l\'envoi de l\'observation. Veuillez reessayer.');
+                        })
+                        .finally(function() {
+                            if (submitButton) {
+                                submitButton.disabled = false;
+                                submitButton.textContent = originalButtonText;
+                            }
+                        });
+                }
+
+                const selectedFile = fileInput && fileInput.files ? fileInput.files[0] : null;
+
+                if (selectedFile) {
+                    const reader = new FileReader();
+
+                    reader.onload = function() {
+                        data.imageBase64 = reader.result.split(',')[1];
+                        data.imageName = selectedFile.name;
+                        data.imageType = selectedFile.type;
+                        sendData(data);
+                    };
+
+                    reader.onerror = function(error) {
+                        console.error('Erreur de lecture du fichier :', error);
+                        alert('Impossible de lire l\'image selectionnee.');
+
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                            submitButton.textContent = originalButtonText;
+                        }
+                    };
+
+                    reader.readAsDataURL(selectedFile);
+                } else {
+                    sendData(data);
+                }
+            });
         });
     </script>
 </body>

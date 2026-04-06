@@ -43,10 +43,3 @@ treetraque-website
 1. Clonez le dépôt : `git clone <url-du-depot>`
 2. Ouvrez le fichier `index.html` dans votre navigateur pour voir le site en action.
 
-## Contribuer
-
-Les contributions sont les bienvenues ! N'hésitez pas à soumettre des demandes de tirage pour des améliorations ou des corrections de bogues.
-
-## Contact
-
-Pour toute question ou suggestion, veuillez contacter l'équipe Treetraque à l'adresse email suivante : contact@treetraque.ca.
