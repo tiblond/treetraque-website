@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="about.page.title">Qui sommes-nous? - TreeTraque</title>
+    <meta name="description" data-i18n="about.page.description" content="Découvrez l'équipe et l'organisation derrière TreeTraque, le projet de science participative sur la phénologie des arbres au Canada.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header avec navigation -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="main-nav" role="navigation" aria-label="Navigation principale">
+                <ul class="nav-list">
+                    <li><a href="index.html" data-i18n="nav.home" class="nav-link">Accueil</a></li>
+                    <li><a href="theorie.html" data-i18n="nav.theory" class="nav-link">Un peu de théorie</a></li>
+                    <li><a href="apropos.html" data-i18n="nav.about" class="nav-link active">Qui sommes-nous?</a></li>
+                    <li><a href="printemps.html" data-i18n="nav.spring" class="nav-link">Observations printanières</a></li>
+                    <li><a href="automne.html" data-i18n="nav.autumn" class="nav-link">Observations automnales</a></li>
+                    <li><a href="identification.html" data-i18n="nav.identification" class="nav-link">Identification</a></li>
+                    <li><a href="faq.html" data-i18n="nav.faq" class="nav-link">FAQ</a></li>
+                </ul>
+                
+                <!-- Menu hamburger pour mobile -->
+                <button class="mobile-menu-toggle" aria-label="Ouvrir le menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="main-content">
+        <!-- Section Titre de page -->
+        <section class="page-hero page-hero-about">
+            <div class="container">
+                <div class="hero-logo">
+                    <img src="assets/images/TreeTraque_logo_principal.png" alt="TreeTraque">
+                </div>
+                <div class="hero-text-content">
+                    <h1 data-i18n="about.title" class="page-title">Qui sommes-nous?</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Projet -->
+        <section class="mission-section">
+            <div class="container">
+                <h2 data-i18n="about.project.title" class="section-title">Le Projet TreeTraque</h2>
+                <div class="mission-content">
+                    <p data-i18n="about.project.description">
+                        TreeTraque est un projet de recherche mené par Dr. Elisabeth Levac. Plusieurs étudiants ont été impliqués dans le projet, notamment : Andrew Compton, Anabel Laurie et Jessica Meadows. Leur contribution est reconnue.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Directrice du Projet -->
+        <section class="team-section">
+            <div class="container">
+                <h2 data-i18n="about.director.title" class="section-title">Directrice du Projet</h2>
+                <div class="team-content" style="max-width: 900px; margin: 0 auto;">
+                    <div class="team-member-profile">
+                        <!-- Photo de Dr. Levac -->
+                        <div style="text-align: center; margin-bottom: var(--spacing-lg);">
+                            <img src="assets/images/Levac.png" alt="Dr. Elisabeth Levac" style="max-width: 300px; width: 100%; height: auto; border-radius: 8px;">
+                        </div>
+                        
+                        <h3 data-i18n="about.director.name">Dr. Elisabeth Levac</h3>
+                        <p class="team-role" data-i18n="about.director.role">Professeure, Département d'Environnement et de Géographie</p>
+                        <p class="team-affiliation" data-i18n="about.director.affiliation">Université Bishop's</p>
+                        
+                        <div style="margin-top: var(--spacing-lg);">
+                            <p data-i18n="about.director.bio1">
+                                Professeur Levac enseigne au département d'Environnement et de Géographie à l'université Bishop's. Elle fait le suivi des aérosols biogéniques (pollen et spores) à Sherbrooke depuis 2006. TreeTraque va permettre d'établir un lien entre la floraison des arbres et les observations du pollen au microscope.
+                            </p>
+                            
+                            <p style="margin-top: var(--spacing-md);" data-i18n="about.director.bio2">
+                                Elle conduit des recherches sur l'impact du pollen aérien et de la pollution de l'air sur la santé. Des travaux en cours examinent la durée de la saison des allergies dues à l'herbe à poux pour déterminer si elle est affectée par les changements climatiques.
+                            </p>
+                        </div>
+                        
+                        <!-- Logo Bishop's University -->
+                        <div style="text-align: center; margin-top: var(--spacing-xl); margin-bottom: var(--spacing-lg);">
+                            <img src="assets/images/BU.png" alt="Bishop's University" style="max-width: 200px; width: 100%; height: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Liens de référence -->
+        <section class="links-section" style="background-color: var(--color-background-alt, #f8f9fa); padding: var(--spacing-xl) 0;">
+            <div class="container">
+                <h2 data-i18n="about.links.title" class="section-title">Liens de référence</h2>
+                <div style="max-width: 700px; margin: 0 auto;">
+                    <div style="display: flex; flex-direction: column; gap: var(--spacing-md);">
+                        <div>
+                            <strong data-i18n="about.links.website">Site web de recherche</strong><br>
+                            <a href="https://elisabethlevac.ca" target="_blank" rel="noopener noreferrer">elisabethlevac.ca</a>
+                        </div>
+                        
+                        <div>
+                            <strong data-i18n="about.links.bishops">Elisabeth Levac sur le site de Bishop's</strong><br>
+                            <a href="https://www.ubishops.ca/bu-directory/name/elisabeth-levac/" target="_blank" rel="noopener noreferrer">https://www.ubishops.ca/bu-directory/name/elisabeth-levac/</a>
+                        </div>
+                        
+                        <div>
+                            <strong data-i18n="about.links.pollen">Surveillance du pollen</strong><br>
+                            <a href="https://pollenlennoxville.ca" target="_blank" rel="noopener noreferrer"><span data-i18n="about.links.pollen.name">Pollen Lennoxville</span></a>
+                        </div>
+                        
+                        <div>
+                            <strong data-i18n="about.links.other">Autres projets</strong><br>
+                            <a href="https://www.treecanopysherbrooke.ca/" target="_blank" rel="noopener noreferrer"><span data-i18n="about.links.canopy">Tree Canopy Sherbrooke</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p data-i18n="footer.copyright">&copy; 2026 TreeTraque. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton de changement de langue (fixé en bas à droite) -->
+    <div class="language-switcher" id="languageSwitcher">
+        <button class="lang-btn" id="langToggle" aria-label="Changer de langue">
+            <span class="lang-text" id="langText">FR</span>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

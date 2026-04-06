@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="autumn.page.title">Observations automnales - TreeTraque</title>
+    <meta name="description" data-i18n="autumn.page.description" content="Enregistrez vos observations automnales des arbres : changement de couleur des feuilles, chute des feuilles, préparation à l'hiver.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header avec navigation -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="main-nav" role="navigation" aria-label="Navigation principale">
+                <ul class="nav-list">
+                    <li><a href="index.html" data-i18n="nav.home" class="nav-link">Accueil</a></li>
+                    <li><a href="theorie.html" data-i18n="nav.theory" class="nav-link">Un peu de théorie</a></li>
+                    <li><a href="apropos.html" data-i18n="nav.about" class="nav-link">Qui sommes-nous?</a></li>
+                    <li><a href="printemps.html" data-i18n="nav.spring" class="nav-link">Observations printanières</a></li>
+                    <li><a href="automne.html" data-i18n="nav.autumn" class="nav-link active">Observations automnales</a></li>
+                    <li><a href="identification.html" data-i18n="nav.identification" class="nav-link">Identification</a></li>
+                    <li><a href="faq.html" data-i18n="nav.faq" class="nav-link">FAQ</a></li>
+                </ul>
+                
+                <!-- Menu hamburger pour mobile -->
+                <button class="mobile-menu-toggle" aria-label="Ouvrir le menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="main-content">
+        <!-- Section Titre de page -->
+        <section class="page-hero page-hero-autumn">
+            <div class="container">
+                <div class="hero-logo">
+                    <img src="assets/images/TreeTraque_logo_principal.png" alt="TreeTraque">
+                </div>
+                <div class="hero-text-content">
+                    <h1 data-i18n="autumn.title" class="page-title">Enregistrez vos observations automnales ici</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Formulaire d'observation -->
+        <section class="observation-form-section">
+            <div class="container">
+                <!-- Introduction -->
+                <div class="form-intro">
+                    <h2 data-i18n="autumn.intro.title">Vous avez choisi votre arbre préféré?</h2>
+                    <p data-i18n="autumn.intro.text">
+                        Si vous êtes prêts à enregistrer vos observations sur le changement de couleur ou la chute des feuilles, entrez les ici:
+                    </p>
+                    
+                    <!-- Disclaimer -->
+                    <div class="disclaimer-box">
+                        <h3 data-i18n="autumn.disclaimer.title">Avertissement</h3>
+                        <p data-i18n="autumn.disclaimer.text">
+                            S'il vous plaît, prenez des précautions. Ne grimpez pas dans les arbres pour examiner les feuilles. Nous ne sommes pas responsable des accidents.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Formulaire -->
+                <form class="observation-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="access_key" value="c7c104ba-8141-4b37-871c-5b74a16a7650">
+                    <!-- Nom -->
+                    <div class="form-group">
+                        <label data-i18n="form.name">Nom <span class="required">*</span></label>
+                        <div class="form-row">
+                            <input type="text" name="first_name" placeholder="Prénom" data-i18n-placeholder="form.first" required>
+                            <input type="text" name="last_name" placeholder="Nom de famille" data-i18n-placeholder="form.last" required>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label data-i18n="form.email">Adresse courriel <span class="required">*</span></label>
+                        <input type="email" name="email" required>
+                    </div>
+
+                    <!-- Image Upload -->
+                    <div class="form-group">
+                        <label data-i18n="form.image_upload">Téléchargement d'image (OPTIONNEL; vous n'avez pas besoin de soumettre une photo)</label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" name="photo" id="photo" accept="image/*">
+                            <label for="photo" class="file-upload-label" data-i18n="form.select_image">Sélectionner une image</label>
+                        </div>
+                    </div>
+
+                    <!-- Date -->
+                    <div class="form-group">
+                        <label data-i18n="form.date">Date <span class="required">*</span></label>
+                        <input type="date" name="observation_date" required>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="form-group">
+                        <label data-i18n="form.location">Emplacement</label>
+                        <div class="location-grid">
+                            <input type="text" name="street" placeholder="Nom de la rue (adresse non nécessaire)" data-i18n-placeholder="form.street">
+                            <div class="location-row">
+                                <input type="text" name="city" placeholder="Ville" data-i18n-placeholder="form.city" required>
+                                <input type="text" name="province" placeholder="Province" data-i18n-placeholder="form.province" required>
+                            </div>
+                            <input type="text" name="postal_code" placeholder="Code postal" data-i18n-placeholder="form.postal_code" required>
+                        </div>
+                    </div>
+
+                    <!-- Tree Species -->
+                    <div class="form-group">
+                        <label data-i18n="form.tree_species">Espèce d'arbre <span class="required">*</span></label>
+                        <select name="tree_species" required>
+                            <option value="" data-i18n="form.select">— Sélectionner —</option>
+                            <option value="white_ash">Frêne blanc/White ash (Fraxinus americana)</option>
+                            <option value="black_ash">Frêne noir/Black ash (swamp ash) (Fraxinus nigra)</option>
+                            <option value="balsam_poplar">Peuplier baumier/Balsam poplar (Populus balsamifera)</option>
+                            <option value="bigtooth_aspen">Peuplier à grandes dents/Bigtooth aspen (Populus grandidentata)</option>
+                            <option value="quaking_aspen">Peuplier tremble/Quaking aspen (Populus tremuloides)</option>
+                            <option value="american_basswood">Tilleul d'Amérique/American basswood (Tilia americana)</option>
+                            <option value="american_beech">Hêtre à grandes feuilles/American beech (Fagus grandifolia)</option>
+                            <option value="paper_birch">Bouleau blanc, à papier/Paper birch, white birch (Betula papyrifera)</option>
+                            <option value="grey_birch">Bouleau à feuille de peuplier ou bouleau gris/Grey birch (Betula populifolia)</option>
+                            <option value="yellow_birch">Bouleau jaune/Yellow birch (Betula alleghaniensis)</option>
+                            <option value="bitternut_hickory">Caryer cordiforme/Bitternut hickory or black walnut (Carya cordiformis)</option>
+                            <option value="black_locust">Robinier faux-acacia/Black locust (Robinia pseudoacacia)</option>
+                            <option value="butternut">Noyer à noix longues, Noyer cendré/Butternut, white walnut (Juglans cinerea)</option>
+                            <option value="black_cherry">Cerisier noir/Black cherry (Prunus serotina)</option>
+                            <option value="choke_cherry">Cerisier à grappe/Choke cherry (Prunus virginiana)</option>
+                            <option value="american_elm">Orme d'Amérique/American elm (Ulmus americana)</option>
+                            <option value="box_elder">Érable à Giguère/Box elder, ashleaf maple (Acer negundo)</option>
+                            <option value="mountain_maple">Érable à épis/Mountain maple (Acer spicatum)</option>
+                            <option value="norway_maple">Érable de Norvège/Norway maple (Acer platanoides)</option>
+                            <option value="red_maple">Érable rouge/Red maple (Acer rubrum)</option>
+                            <option value="silver_maple">Érable argenté/Silver maple (Acer saccharinum)</option>
+                            <option value="striped_maple">Érable de Pennsylvanie/Striped maple (Acer pensylvanicum)</option>
+                            <option value="sugar_maple">Érable à sucre/Sugar maple (Acer saccharum)</option>
+                            <option value="burr_oak">Chêne à gros fruits/Burr oak, Mossycup oak (Quercus macrocarpa)</option>
+                            <option value="northern_red_oak">Chêne rouge/Northern red oak (Quercus rubra)</option>
+                            <option value="white_oak">Chêne blanc/White oak (Quercus alba)</option>
+                            <option value="tamarack">Mélèze laricin/Tamarack (Larix laricina)</option>
+                        </select>
+                    </div>
+
+                    <!-- Percentage of leaves fallen -->
+                    <div class="form-group">
+                        <label data-i18n="form.leaves_fallen">Pourcentage de feuilles tombées de l'arbre</label>
+                        <select name="leaves_fallen">
+                            <option value="" data-i18n="form.select">— Sélectionner —</option>
+                            <option value="not_started">Chute pas encore commencé/not started yet</option>
+                            <option value="10_percent">10% des feuilles sont tombées/10% of leaves have fallen</option>
+                            <option value="30_percent">30% des feuilles sont tombées/30% of leaves have fallen</option>
+                            <option value="50_percent">50% des feuilles sont tombées/50% of leaves have fallen</option>
+                            <option value="70_percent">70% des feuilles sont tombées/70% of leaves have fallen</option>
+                            <option value="90_percent">90% des feuilles sont tombées/90% of leaves have fallen</option>
+                            <option value="all_fallen">Toutes les feuilles sont tombées/All leaves have fallen</option>
+                        </select>
+                        <span class="helper-text" data-i18n="form.leaves_fallen.note">Ceci est probablement plus facile si vous regardez votre arbre régulièrement pour voir quel pourcentage de feuilles sont tombées</span>
+                    </div>
+
+                    <!-- Percentage of leaves that changed color -->
+                    <div class="form-group">
+                        <label data-i18n="form.leaves_color">Pourcentage de feuilles sur l'arbre qui ont changé de couleur</label>
+                        <select name="leaves_color">
+                            <option value="" data-i18n="form.select">— Sélectionner —</option>
+                            <option value="no_change">aucun changement/no change yet</option>
+                            <option value="10_percent_color">10% des feuilles ont changé de couleur/10% of leaves have changed colour</option>
+                            <option value="30_percent_color">30% des feuilles ont changé de couleur/30% of leaves have changed colour</option>
+                            <option value="50_percent_color">50% des feuilles ont changé de couleur/50% of leaves have changed colour</option>
+                            <option value="70_percent_color">70% des feuilles ont changé de couleur/70% of leaves have changed colour</option>
+                            <option value="90_percent_color">90% des feuilles ont changé de couleur/90% of leaves have changed colour</option>
+                            <option value="all_changed">Toutes les feuilles ont changé de couleur/All leaves have changed colour</option>
+                        </select>
+                        <span class="helper-text" data-i18n="form.leaves_color.note">Examinez l'ensemble de l'arbre pour estimer le % des feuilles qui ont changé de couleur.</span>
+                    </div>
+
+                    <!-- Colors present -->
+                    <div class="form-group">
+                        <label data-i18n="form.colors_present">Quelles couleurs sont présentes sur l'arbre (cliquez tout ce qui s'applique)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="color_only_green" id="color_only_green" value="only_green">
+                                <label for="color_only_green" data-i18n="form.color_only_green">Seulement des feuilles vertes sont présentes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="color_some_green" id="color_some_green" value="some_green">
+                                <label for="color_some_green" data-i18n="form.color_some_green">Des feuilles vertes sont présentes (pas tous)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="color_red" id="color_red" value="red">
+                                <label for="color_red" data-i18n="form.color_red">Des feuilles rouges sont présentes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="color_yellow" id="color_yellow" value="yellow">
+                                <label for="color_yellow" data-i18n="form.color_yellow">Des feuilles jaunes sont présentes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="color_orange" id="color_orange" value="orange">
+                                <label for="color_orange" data-i18n="form.color_orange">Des feuilles oranges sont présentes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="color_brown" id="color_brown" value="brown">
+                                <label for="color_brown" data-i18n="form.color_brown">Des feuilles brunes sont présentes</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="color_purple" id="color_purple" value="purple">
+                                <label for="color_purple" data-i18n="form.color_purple">Des feuilles pourpres sont présentes</label>
+                            </div>
+                        </div>
+                        <span class="helper-text" data-i18n="form.colors_present.note">Cliquez-plus qu'un choix si 1 couleur si présent</span>
+                    </div>
+
+                    <!-- Notes -->
+                    <div class="form-group">
+                        <label data-i18n="form.notes">Notes /observations</label>
+                        <textarea name="notes"></textarea>
+                    </div>
+
+                    <!-- Age Consent -->
+                    <div class="form-group">
+                        <label data-i18n="form.age_consent">J'ai 18 ans ou plus <span class="required">*</span></label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="radio" name="age_consent" value="yes" id="age_yes" required>
+                                <label for="age_yes" data-i18n="form.age_yes">Oui</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" name="age_consent" value="supervised" id="age_supervised" required>
+                                <label for="age_supervised" data-i18n="form.age_supervised">Non, mais un adulte me supervise</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Consent -->
+                    <div class="form-group">
+                        <label data-i18n="form.consent">Consentement <span class="required">*</span></label>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="consent" id="consent" required>
+                            <label for="consent" class="consent-text" data-i18n="form.consent_text">
+                                Je consens à fournir mes observations sur les arbres et je suis conscient que les données collectées seront utilisées à des fins de recherche sur la phénologie et les impacts du changement climatique sur les phases de développement des arbres. Tout identifiant personnel ou donnée personnelle restera confidentiel et ne sera pas supprimé de la base de données utilisée pour de futurs projets de recherche.
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-button" data-i18n="form.submit">
+                        Cliquez pour soumettre votre observation
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p data-i18n="footer.copyright">&copy; 2026 TreeTraque. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton de changement de langue (fixé en bas à droite) -->
+    <div class="language-switcher" id="languageSwitcher">
+        <button class="lang-btn" id="langToggle" aria-label="Changer de langue">
+            <span class="lang-text" id="langText">FR</span>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Script pour afficher le nom du fichier sélectionné
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileInput = document.getElementById('photo');
+            const fileLabel = document.querySelector('.file-upload-label');
+            
+            if (fileInput && fileLabel) {
+                const originalText = fileLabel.textContent;
+                
+                fileInput.addEventListener('change', function() {
+                    if (this.files && this.files.length > 0) {
+                        fileLabel.textContent = this.files[0].name;
+                    } else {
+                        fileLabel.textContent = originalText;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

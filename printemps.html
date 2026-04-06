@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="spring.page.title">Observations printanières - TreeTraque</title>
+    <meta name="description" data-i18n="spring.page.description" content="Enregistrez vos observations printanières des arbres : bourgeonnement, floraison, premiers signes de vie végétale.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header avec navigation -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="main-nav" role="navigation" aria-label="Navigation principale">
+                <ul class="nav-list">
+                    <li><a href="index.html" data-i18n="nav.home" class="nav-link">Accueil</a></li>
+                    <li><a href="theorie.html" data-i18n="nav.theory" class="nav-link">Un peu de théorie</a></li>
+                    <li><a href="apropos.html" data-i18n="nav.about" class="nav-link">Qui sommes-nous?</a></li>
+                    <li><a href="printemps.html" data-i18n="nav.spring" class="nav-link active">Observations printanières</a></li>
+                    <li><a href="automne.html" data-i18n="nav.autumn" class="nav-link">Observations automnales</a></li>
+                    <li><a href="identification.html" data-i18n="nav.identification" class="nav-link">Identification</a></li>
+                    <li><a href="faq.html" data-i18n="nav.faq" class="nav-link">FAQ</a></li>
+                </ul>
+                
+                <!-- Menu hamburger pour mobile -->
+                <button class="mobile-menu-toggle" aria-label="Ouvrir le menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="main-content">
+        <!-- Section Titre de page -->
+        <section class="page-hero page-hero-spring">
+            <div class="container">
+                <div class="hero-logo">
+                    <img src="assets/images/TreeTraque_logo_principal.png" alt="TreeTraque">
+                </div>
+                <div class="hero-text-content">
+                    <h1 data-i18n="spring.title" class="page-title">Enregistrer les observations de printemps ici</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Formulaire d'observation -->
+        <section class="observation-form-section">
+            <div class="container">
+                <!-- Introduction -->
+                <div class="form-intro">
+                    <h2 data-i18n="spring.intro.title">Vous avez déjà choisi votre arbre préféré?</h2>
+                    <p data-i18n="spring.intro.text">
+                        Si vous êtes prêt à enregistrer des observations sur les feuilles qui se déploient ou les fleurs qui s'épanouissent, remplissez-les ci-dessous. Parfois, plusieurs phases peuvent se produire en même temps. Par exemple, les fleurs se fanent pendant que les premières feuilles se déploient. Dans ce cas, entrez 2 observations séparées.
+                    </p>
+                    
+                    <!-- Disclaimer -->
+                    <div class="disclaimer-box">
+                        <h3 data-i18n="spring.disclaimer.title">Avertissement</h3>
+                        <p data-i18n="spring.disclaimer.text">
+                            Attention! Veuillez faire preuve de prudence lors de vos observations. Ne grimpez pas aux arbres pour vérifier les nouvelles feuilles ou vérifier s'il y a des fleurs. Nous déclinons toute responsabilité pour tout préjudice subi lors de ces observations.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Formulaire -->
+                <form class="observation-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="access_key" value="c7c104ba-8141-4b37-871c-5b74a16a7650">
+                    <!-- Nom -->
+                    <div class="form-group">
+                        <label data-i18n="form.name">Nom <span class="required">*</span></label>
+                        <div class="form-row">
+                            <input type="text" name="first_name" placeholder="Prénom" data-i18n-placeholder="form.first" required>
+                            <input type="text" name="last_name" placeholder="Nom de famille" data-i18n-placeholder="form.last" required>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label data-i18n="form.email">Adresse courriel <span class="required">*</span></label>
+                        <input type="email" name="email" required>
+                    </div>
+
+                    <!-- Image Upload -->
+                    <div class="form-group">
+                        <label data-i18n="form.image_upload">Téléchargement d'image (OPTIONNEL; vous n'avez pas besoin de soumettre une photo)</label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" name="photo" id="photo" accept="image/*">
+                            <label for="photo" class="file-upload-label" data-i18n="form.select_image">Sélectionner une image</label>
+                        </div>
+                    </div>
+
+                    <!-- Date -->
+                    <div class="form-group">
+                        <label data-i18n="form.date">Date <span class="required">*</span></label>
+                        <input type="date" name="observation_date" required>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="form-group">
+                        <label data-i18n="form.location">Emplacement</label>
+                        <div class="location-grid">
+                            <input type="text" name="street" placeholder="Nom de la rue (adresse non nécessaire)" data-i18n-placeholder="form.street">
+                            <div class="location-row">
+                                <input type="text" name="city" placeholder="Ville" data-i18n-placeholder="form.city" required>
+                                <input type="text" name="province" placeholder="Province" data-i18n-placeholder="form.province" required>
+                            </div>
+                            <input type="text" name="postal_code" placeholder="Code postal" data-i18n-placeholder="form.postal_code" required>
+                        </div>
+                    </div>
+
+                    <!-- Tree Species -->
+                    <div class="form-group">
+                        <label data-i18n="form.tree_species">Espèce d'arbre <span class="required">*</span></label>
+                        <select name="tree_species" required>
+                            <option value="" data-i18n="form.select">— Sélectionner —</option>
+                            <option value="white_ash">Frêne blanc/White ash (Fraxinus americana)</option>
+                            <option value="black_ash">Frêne noir/Black ash (swamp ash) (Fraxinus nigra)</option>
+                            <option value="balsam_poplar">Peuplier baumier/Balsam poplar (Populus balsamifera)</option>
+                            <option value="bigtooth_aspen">Peuplier à grandes dents/Bigtooth aspen (Populus grandidentata)</option>
+                            <option value="quaking_aspen">Peuplier tremble/Quaking aspen (Populus tremuloides)</option>
+                            <option value="american_basswood">Tilleul d'Amérique/American basswood (Tilia americana)</option>
+                            <option value="american_beech">Hêtre à grandes feuilles/American beech (Fagus grandifolia)</option>
+                            <option value="paper_birch">Bouleau blanc, à papier/Paper birch, white birch (Betula papyrifera)</option>
+                            <option value="grey_birch">Bouleau à feuille de peuplier ou bouleau gris/Grey birch (Betula populifolia)</option>
+                            <option value="yellow_birch">Bouleau jaune/Yellow birch (Betula alleghaniensis)</option>
+                            <option value="bitternut_hickory">Caryer cordiforme/Bitternut hickory or black walnut (Carya cordiformis)</option>
+                            <option value="black_locust">Robinier faux-acacia/Black locust (Robinia pseudoacacia)</option>
+                            <option value="butternut">Noyer à noix longues, Noyer cendré/Butternut, white walnut (Juglans cinerea)</option>
+                            <option value="black_cherry">Cerisier noir/Black cherry (Prunus serotina)</option>
+                            <option value="choke_cherry">Cerisier à grappe/Choke cherry (Prunus virginiana)</option>
+                            <option value="american_elm">Orme d'Amérique/American elm (Ulmus americana)</option>
+                            <option value="box_elder">Érable à Giguère/Box elder, ashleaf maple (Acer negundo)</option>
+                            <option value="mountain_maple">Érable à épis/Mountain maple (Acer spicatum)</option>
+                            <option value="norway_maple">Érable de Norvège/Norway maple (Acer platanoides)</option>
+                            <option value="red_maple">Érable rouge/Red maple (Acer rubrum)</option>
+                            <option value="silver_maple">Érable argenté/Silver maple (Acer saccharinum)</option>
+                            <option value="striped_maple">Érable de Pennsylvanie/Striped maple (Acer pensylvanicum)</option>
+                            <option value="sugar_maple">Érable à sucre/Sugar maple (Acer saccharum)</option>
+                            <option value="burr_oak">Chêne à gros fruits/Burr oak, Mossycup oak (Quercus macrocarpa)</option>
+                            <option value="northern_red_oak">Chêne rouge/Northern red oak (Quercus rubra)</option>
+                            <option value="white_oak">Chêne blanc/White oak (Quercus alba)</option>
+                            <option value="tamarack">Mélèze laricin/Tamarack (Larix laricina)</option>
+                        </select>
+                    </div>
+
+                    <!-- Flowering -->
+                    <div class="form-group">
+                        <label data-i18n="form.flowering">Floraison</label>
+                        <select name="flowering">
+                            <option value="" data-i18n="form.select">— Sélectionner —</option>
+                            <option value="no_flowers">Aucune fleur / No flower</option>
+                            <option value="male_flowers_visible">Des fleurs mâles sont visibles / Some male flowers are visible</option>
+                            <option value="10_percent_male">10% des fleurs mâles libèrent du pollen / 10% of male flowers shed pollen</option>
+                            <option value="50_percent_male">50% des fleurs mâles libèrent du pollen / 50% of male flowers shed pollen</option>
+                            <option value="most_male_pollen">La plupart des fleurs mâles produisent du pollen / Most male flowers shed pollen</option>
+                            <option value="male_flowers_wither">Les fleurs mâles commencent à se faner / Male flower starting to wither</option>
+                            <option value="male_flowers_fall">Les fleurs mâles commencent à tomber / Male flower starting to fall</option>
+                        </select>
+                        <span class="helper-text" data-i18n="form.flowering.note">Examinez l'arbre entier pour estimer le % de fleurs ouvertes</span>
+                    </div>
+
+                    <!-- Budding -->
+                    <div class="form-group">
+                        <label data-i18n="form.budding">Bourgeonnement (ouverture des bourgeons)</label>
+                        <select name="budding">
+                            <option value="" data-i18n="form.select">— Sélectionner —</option>
+                            <option value="not_started">Pas encore commencé/not started yet</option>
+                            <option value="bud_break_beginning">Début éclatement des bourgeons/Beginning of bud break</option>
+                            <option value="leaf_tips_coming">Bouts des feuilles sorties du bourgeon/Leaf tips coming out of bud</option>
+                            <option value="leaves_unfolding">Feuilles se déploient/Leaves are unfolding</option>
+                        </select>
+                    </div>
+
+                    <!-- Leafing out (young) -->
+                    <div class="form-group">
+                        <label data-i18n="form.leafing_young">Déploiement des feuilles (jeunes feuilles)</label>
+                        <select name="leafing_young">
+                            <option value="" data-i18n="form.select">— Sélectionner —</option>
+                            <option value="first_leaves_separating">Les premières feuilles se séparent/First leaves are separating</option>
+                            <option value="10_percent_unfolded">Environ 10% des feuilles sont dépliées/About 10% of leaves are unfolded</option>
+                            <option value="50_percent_unfolded">Environ 50% des feuilles sont dépliées/About 50% of leaves are unfolded</option>
+                            <option value="all_leaves_unfolded">Toutes les feuilles sont dépliées/All leaves are unfolded</option>
+                        </select>
+                        <span class="helper-text" data-i18n="form.leafing_young.note">Pour la plupart des arbres, attendez que les fleurs ici soient épanouies</span>
+                    </div>
+
+                    <!-- Leafing out (mature) -->
+                    <div class="form-group">
+                        <label data-i18n="form.leafing_mature">Déploiement des feuilles (feuilles matures)</label>
+                        <select name="leafing_mature">
+                            <option value="" data-i18n="form.select">— Sélectionner —</option>
+                            <option value="not_started_mature">Pas encore commencé/not started yet</option>
+                            <option value="10_percent_full_size">10% des feuilles ont leur pleine taille/10% of leaves are fully expanded</option>
+                            <option value="50_percent_full_size">50% des feuilles ont leur pleine taille/50% of leaves are fully expanded</option>
+                            <option value="all_leaves_full_size">Toutes les feuilles ont leur pleine taille/All leaves are fully expanded</option>
+                        </select>
+                    </div>
+
+                    <!-- Fruiting -->
+                    <div class="form-group">
+                        <label data-i18n="form.fruiting">Fructification (fruits, graines, glands, etc.)</label>
+                        <select name="fruiting">
+                            <option value="" data-i18n="form.select">— Sélectionner —</option>
+                            <option value="first_fruits_formed">Les premiers fruits sont formés/First fruits are formed</option>
+                            <option value="fruits_mature">Les fruits sont matures/Fruits are mature</option>
+                            <option value="fruits_falling">Les fruits commencent à tomber/Fruits or seeds are starting to fall</option>
+                        </select>
+                    </div>
+
+                    <!-- Notes -->
+                    <div class="form-group">
+                        <label data-i18n="form.notes">Notes /observations</label>
+                        <textarea name="notes"></textarea>
+                    </div>
+
+                    <!-- Age Consent -->
+                    <div class="form-group">
+                        <label data-i18n="form.age_consent">J'ai 18 ans ou plus <span class="required">*</span></label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="radio" name="age_consent" value="yes" id="age_yes" required>
+                                <label for="age_yes" data-i18n="form.age_yes">Oui</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" name="age_consent" value="supervised" id="age_supervised" required>
+                                <label for="age_supervised" data-i18n="form.age_supervised">Non, mais un adulte me supervise</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Consent -->
+                    <div class="form-group">
+                        <label data-i18n="form.consent">Consentement <span class="required">*</span></label>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="consent" id="consent" required>
+                            <label for="consent" class="consent-text" data-i18n="form.consent_text">
+                                Je consens à fournir mes observations sur les arbres et je suis conscient que les données collectées seront utilisées à des fins de recherche sur la phénologie et les impacts du changement climatique sur les phases de développement des arbres. Tout identifiant personnel ou donnée personnelle restera confidentiel et ne sera pas supprimé de la base de données utilisée pour de futurs projets de recherche.
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-button" data-i18n="form.submit">
+                        Cliquez pour soumettre votre observation
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p data-i18n="footer.copyright">&copy; 2026 TreeTraque. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton de changement de langue (fixé en bas à droite) -->
+    <div class="language-switcher" id="languageSwitcher">
+        <button class="lang-btn" id="langToggle" aria-label="Changer de langue">
+            <span class="lang-text" id="langText">FR</span>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Script pour afficher le nom du fichier sélectionné
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileInput = document.getElementById('photo');
+            const fileLabel = document.querySelector('.file-upload-label');
+            
+            if (fileInput && fileLabel) {
+                const originalText = fileLabel.textContent;
+                
+                fileInput.addEventListener('change', function() {
+                    if (this.files && this.files.length > 0) {
+                        fileLabel.textContent = this.files[0].name;
+                    } else {
+                        fileLabel.textContent = originalText;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="site.title">TreeTraque - Science participative sur la phénologie des arbres</title>
+    <meta name="description" data-i18n="site.description" content="Projet de science participative pour étudier la phénologie des arbres et comprendre l'impact du changement climatique sur nos forêts.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header avec navigation -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="main-nav" role="navigation" aria-label="Navigation principale">
+                <ul class="nav-list">
+                    <li><a href="index.html" data-i18n="nav.home" class="nav-link active">Accueil</a></li>
+                    <li><a href="theorie.html" data-i18n="nav.theory" class="nav-link">Un peu de théorie</a></li>
+                    <li><a href="apropos.html" data-i18n="nav.about" class="nav-link">Qui sommes-nous?</a></li>
+                    <li><a href="printemps.html" data-i18n="nav.spring" class="nav-link">Observations printanières</a></li>
+                    <li><a href="automne.html" data-i18n="nav.autumn" class="nav-link">Observations automnales</a></li>
+                    <li><a href="identification.html" data-i18n="nav.identification" class="nav-link">Identification</a></li>
+                    <li><a href="faq.html" data-i18n="nav.faq" class="nav-link">FAQ</a></li>
+                </ul>
+                
+                <!-- Menu hamburger pour mobile -->
+                <button class="mobile-menu-toggle" aria-label="Ouvrir le menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="main-content">
+        <!-- Section Accueil avec vidéo en arrière-plan -->
+        <section id="accueil" class="hero-section hero-video">
+            <!-- Vidéo en arrière-plan -->
+            <video class="hero-video-bg" autoplay muted loop playsinline>
+                <source src="assets/video/Maple-18712.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture de vidéos. La vidéo devrait s'afficher ici.
+            </video>
+            
+            <!-- Overlay sombre pour améliorer la lisibilité du texte -->
+            <div class="hero-overlay"></div>
+            
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-logo">
+                        <img src="assets/images/TreeTraque_logo_principal.png" alt="TreeTraque">
+                    </div>
+                    <div class="hero-text-content">
+                        <h2 data-i18n="hero.title" class="hero-title">Suivez l'évolution des arbres avec nous</h2>
+                        <p data-i18n="hero.subtitle" class="hero-subtitle">
+                            Participez à un projet de science citoyenne pour comprendre l'impact du changement climatique sur la phénologie des arbres au Canada.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="printemps.html" data-i18n="hero.cta_participate" class="btn btn-primary">Participer maintenant</a>
+                            <a href="theorie.html" data-i18n="hero.cta_learn" class="btn btn-secondary">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Introduction au projet -->
+        <section class="intro-section">
+            <div class="container">
+                <h2 data-i18n="home.intro.title" class="section-title">Bienvenue sur TreeTraque</h2>
+                <div class="intro-content">
+                    <p data-i18n="home.intro.description">
+                        TreeTraque est un projet de science participative qui vous invite à observer et documenter les changements phénologiques des arbres à travers le Canada. Ensemble, contribuons à mieux comprendre l'impact du changement climatique sur nos forêts.
+                    </p>
+                    <div class="intro-actions">
+                        <a href="theorie.html" data-i18n="home.intro.learn" class="btn btn-primary">Découvrir la théorie</a>
+                        <a href="printemps.html" data-i18n="home.intro.start" class="btn btn-secondary">Commencer les observations</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Liens rapides -->
+        <section class="quick-links-section">
+            <div class="container">
+                <h2 data-i18n="home.quicklinks.title" class="section-title">Accès rapide</h2>
+                <div class="quick-links">
+                    <div class="quick-link">
+                        <h3><a href="printemps.html" data-i18n="home.quicklinks.spring">Observations de printemps</a></h3>
+                        <p data-i18n="home.quicklinks.spring.desc">Enregistrez vos observations printanières : bourgeonnement, floraison...</p>
+                    </div>
+                    <div class="quick-link">
+                        <h3><a href="automne.html" data-i18n="home.quicklinks.autumn">Observations d'automne</a></h3>
+                        <p data-i18n="home.quicklinks.autumn.desc">Documentez les changements automnaux : couleurs, chute des feuilles...</p>
+                    </div>
+                    <div class="quick-link">
+                        <h3><a href="identification.html" data-i18n="home.quicklinks.identify">Identifier un arbre</a></h3>
+                        <p data-i18n="home.quicklinks.identify.desc">Outils et guides pour identifier les espèces d'arbres.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p data-i18n="footer.copyright">&copy; 2026 TreeTraque. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton de changement de langue (fixé en bas à droite) -->
+    <div class="language-switcher" id="languageSwitcher">
+        <button class="lang-btn" id="langToggle" aria-label="Changer de langue">
+            <span class="lang-text" id="langText">FR</span>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+    
+
+</body>
+</html>

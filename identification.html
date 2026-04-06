@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="identification.page.title">Identification d'un arbre - TreeTraque</title>
+    <meta name="description" data-i18n="identification.page.description" content="Outils et guides pour identifier les différentes espèces d'arbres du Canada. Apprenez à reconnaître les caractéristiques distinctives.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header avec navigation -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="main-nav" role="navigation" aria-label="Navigation principale">
+                <ul class="nav-list">
+                    <li><a href="index.html" data-i18n="nav.home" class="nav-link">Accueil</a></li>
+                    <li><a href="theorie.html" data-i18n="nav.theory" class="nav-link">Un peu de théorie</a></li>
+                    <li><a href="apropos.html" data-i18n="nav.about" class="nav-link">Qui sommes-nous?</a></li>
+                    <li><a href="printemps.html" data-i18n="nav.spring" class="nav-link">Observations printanières</a></li>
+                    <li><a href="automne.html" data-i18n="nav.autumn" class="nav-link">Observations automnales</a></li>
+                    <li><a href="identification.html" data-i18n="nav.identification" class="nav-link active">Identification</a></li>
+                    <li><a href="faq.html" data-i18n="nav.faq" class="nav-link">FAQ</a></li>
+                </ul>
+                
+                <!-- Menu hamburger pour mobile -->
+                <button class="mobile-menu-toggle" aria-label="Ouvrir le menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="main-content">
+        <!-- Section Titre de page -->
+        <section class="page-hero page-hero-identification">
+            <div class="container">
+                <div class="hero-logo">
+                    <img src="assets/images/TreeTraque_logo_principal.png" alt="TreeTraque">
+                </div>
+                <div class="hero-text-content">
+                    <h1 data-i18n="identification.title" class="page-title">Identification d'un arbre</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Ressources -->
+        <section class="resources-section">
+            <div class="container">
+                <div class="resources-content">
+                    <p data-i18n="identification.intro" class="intro-text">
+                        Si vous avez besoin d'aide pour identifier un arbre, vous pouvez consulter les pages web suivantes:
+                    </p>
+                    <ul class="resources-list">
+                        <li>
+                            <a href="https://aimfc.rncan.gc.ca/fr/arbres" target="_blank" rel="noopener noreferrer" data-i18n="identification.resources.nrcan">
+                                Trees webpage of Natural Resources Canada
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.afsq.org/fr/la-cle-forestiere" target="_blank" rel="noopener noreferrer" data-i18n="identification.resources.cle_forestiere">
+                                La clé forestière (en français seulement)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://plantnet.org/" target="_blank" rel="noopener noreferrer" data-i18n="identification.resources.plantnet">
+                                PlantNet
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <div class="contact-block">
+                        <p data-i18n="identification.contact.intro">
+                            Si vous avez encore des questions ou avez besoin d'aide pour identifier votre arbre, veuillez me contacter:
+                        </p>
+                        <p class="contact-email">
+                            <a href="mailto:elisabeth.levac@ubishops.ca" data-i18n="identification.contact.email">elisabeth.levac@ubishops.ca</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p data-i18n="footer.copyright">&copy; 2026 TreeTraque. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton de changement de langue (fixé en bas à droite) -->
+    <div class="language-switcher" id="languageSwitcher">
+        <button class="lang-btn" id="langToggle" aria-label="Changer de langue">
+            <span class="lang-text" id="langText">FR</span>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
