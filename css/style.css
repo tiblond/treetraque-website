@@ -409,7 +409,7 @@ section {
 /* Hero spécifique à la page Automne avec image de fond */
 .page-hero-autumn {
   background: linear-gradient(rgba(45, 80, 22, 0.6), rgba(45, 80, 22, 0.6)), 
-              url('assets\images\autumn.jpg') center/cover no-repeat;
+              url('../assets/images/autumn.jpg') center/cover no-repeat;
   min-height: 400px;
   display: flex;
   align-items: center;
