@@ -334,31 +334,29 @@
                     }
                 });
 
-                function sendData(payload) {
-                    fetch(SCRIPT_URL, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(payload)
-                    })
-                        .then(function() {
-                            alert('Observation envoyée avec succès !');
-                            form.reset();
-                            if (fileLabel) {
-                                fileLabel.textContent = originalFileLabelText;
-                            }
-                        })
-                        .catch(function(error) {
-                            console.error('Erreur lors de l\'envoi :', error);
-                            alert('Echec de l\'envoi de l\'observation. Veuillez reessayer.');
-                        })
-                        .finally(function() {
-                            if (submitButton) {
-                                submitButton.disabled = false;
-                                submitButton.textContent = originalButtonText;
-                            }
-                        });
+                function sendData(data) {
+                  fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    // C'est cette ligne magique qui empêche le blocage CORS :
+                    headers: {
+                      "Content-Type": "text/plain;charset=utf-8",
+                    },
+                    body: JSON.stringify(data),
+                  })
+                  .then(response => response.json())
+                  .then(result => {
+                    alert("Merci ! Votre observation a été enregistrée avec succès.");
+                    form.reset();
+                  })
+                  .catch(error => {
+                    console.error('Erreur détaillée:', error);
+                    alert("Erreur lors de l'envoi de l'observation. Veuillez réessayer.");
+                  })
+                  .finally(() => {
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    submitButton.disabled = false;
+                    submitButton.innerText = "Soumettre l'observation"; // ou le texte original de votre bouton
+                  });
                 }
 
                 const selectedFile = fileInput && fileInput.files ? fileInput.files[0] : null;
