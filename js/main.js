@@ -250,7 +250,9 @@ const translations = {
         "form.color_purple": "Des feuilles pourpres sont présentes",
         
         // Footer
-        "footer.copyright": "© 2026 TreeTraque. Tous droits réservés."
+        "footer.copyright": "© 2026 TreeTraque. Tous droits réservés.",
+        "footer.privacy.title": "Avis de confidentialite",
+        "footer.privacy.text": "Les renseignements personnels recueillis (nom, adresse, courriel) seront gardes confidentiels et ne seront pas partages. Une adresse postale nous est utile seulement pour localiser l'arbre observe. Le nom d'une personne ne sera utilise que pour departir de multiples observations d'un meme arbre au meme endroit."
     },
     
     en: {
@@ -498,7 +500,9 @@ const translations = {
         "form.color_purple": "Purple leaves are present",
         
         // Footer
-        "footer.copyright": "© 2026 TreeTraque. All rights reserved."
+        "footer.copyright": "© 2026 TreeTraque. All rights reserved.",
+        "footer.privacy.title": "Privacy disclaimer",
+        "footer.privacy.text": "The personal information collected (name, address, email) will be kept confidential and will not be shared. A postal address is used solely to locate the observed tree. A person's name will be used only to distinguish between multiple observations of the same tree at the same location."
     }
 };
 

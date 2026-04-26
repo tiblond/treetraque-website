@@ -1050,10 +1050,33 @@ section {
   opacity: 0.8;
 }
 
+.footer-disclaimer {
+  max-width: 760px;
+  margin-left: auto;
+  opacity: 0.85;
+}
+
+.footer-disclaimer-title {
+  margin: 0 0 4px 0;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.footer-disclaimer-text {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
     text-align: center;
+  }
+
+  .footer-disclaimer {
+    margin-left: 0;
+    max-width: 100%;
   }
 }
 
